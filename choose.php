@@ -41,7 +41,7 @@
 
                 if (strlen($last_name) > 20)
                 {
-                    for ($indice = 0; $indice <= $taille_max_nom_famille; $indice++)
+                    for ($indice = 0; $indice < $taille_max_nom_famille; $indice++)
                     {
                         $login .= $last_name[$indice];
                     }
