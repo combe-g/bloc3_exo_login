@@ -1,0 +1,25 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    background-color: linen;
+}
+
+main
+{
+    border: solid gray 1px;
+    border-radius: 3px;
+
+    width: max-content;
+
+    background-color: seashell;
+
+    padding: 5px;
+}
