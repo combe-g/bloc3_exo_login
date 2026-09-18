@@ -24,7 +24,15 @@
                 }
             }
             return $resultat;
-        }
+	}
+
+	function retirer_accents (string $chaine) : string
+	{
+    		$accents = ['à','â','ä','ê','ë','î','ï','ô','ö','ù','û','ü','ÿ'];
+    		$sans_accents = ['a','a','a','e','e','i','i','o','o','u','u','u','y'];
+
+    		return str_replace($accents, $sans_accents, $chaine);
+	}
 
         function verify_login (array $login) : bool
         {
@@ -70,9 +78,13 @@
                 $last_name = mb_strtolower($last_name, "utf-8");
                 $first_name = mb_strtolower($first_name, "utf-8");
 
+		$last_name = retirer_accents($last_name);
+		$first_name = retirer_accents($first_name);
+
                 $last_name = filtrer($last_name, $caracteres_autorises);
                 $first_name = filtrer($first_name, $caracteres_autorises);
-
+		
+	
                 if (mb_strlen($last_name, "UTF-8") > $taille_max_nom_famille)
                 {
                     $last_name = mb_substr($last_name, 0, $taille_max_nom_famille, "UTF-8");
